@@ -23,10 +23,7 @@ class Application extends Page {
 			Url::addConverter(new Url\ControllerActionConverter());
 			Url::analyse();
 		}
-		$this->body = new WebComponent();
-		$this->body->addTranslator(LANG_DIR);
-		$this->body->setTemplateFile(TPL_DIR . '/Application/Application.html');
-		$this->init();
+		$this->initContent();
 	}
 
 	/**
@@ -35,6 +32,7 @@ class Application extends Page {
 	 * @return string
 	 */
 	public function __toString() {
+		$this->init();
 		$this->setTitle(Lib\HeadData::getTitle());
 		$this->setDescription(Lib\HeadData::getDescription());
 		$this->setBody($this->body);
@@ -67,7 +65,6 @@ class Application extends Page {
 		$this->body->setVar('PHP_SELF', WEB_ROOT);
 		$this->body->setVar('WEB_ROOT', WEB_ROOT);
 		$this->body->setVar('PROJECT', PROJECT);
-		$this->initContent();
 	}
 
 	/**
@@ -88,6 +85,10 @@ class Application extends Page {
 		$codeEditorForm = new \Project\Component\Form\CodeEditor($text);
 		$codeEditorForm->setAttribute('id', 'code_editor');
 		$codeEditorForm->setAttribute('target', 'code_result');
+
+		$this->body = new WebComponent();
+		$this->body->addTranslator(LANG_DIR);
+		$this->body->setTemplateFile(TPL_DIR . '/Application/Application.html');
 		$this->body->setComponent('CODE_EDITOR', $codeEditorForm);
 	}
 
