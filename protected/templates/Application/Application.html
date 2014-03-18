@@ -1,0 +1,14 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<button id="btn-run" class="btn btn-primary navbar-btn" type="submit" form="code_editor" name="action" value="run" title="Ctrl+R"><span class="glyphicon glyphicon-play"></span> Run</button>
+		<button id="btn-save" class="btn btn-primary navbar-btn" type="submit" form="code_editor" name="action" value="save" title="Ctrl+S"><span class="glyphicon glyphicon-save"></span> Save</button>
+	</div>
+</div>
+<div class="code-container">
+	{CODE_EDITOR}
+	<span class="label label-default">Code</span>
+</div>
+<div class="result-container">
+	<iframe name="code_result" class="code_result"></iframe>
+	<span class="label label-default">Result</span>
+</div>

@@ -1,0 +1,39 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	padding-top: 50px;
+}
+
+.code-container {
+	height: 50%;
+	position: relative;
+}
+
+.result-container {
+	height: 50%;
+	position: relative;
+	overflow: hidden;
+}
+
+.code-container .label, .result-container .label {
+	position: absolute;
+	right: 20px;
+	top: 5px;
+}
+
+.code_result {
+	width: 100%;
+	height: 100%;
+	border : 0;
+}
+
+#code_editor {
+	height: 100%;
+}
+
+.code-container .CodeMirror {
+	border: 1px solid #ccc;
+	height: 100%;
+}
