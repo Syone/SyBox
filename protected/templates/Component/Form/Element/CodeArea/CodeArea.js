@@ -6,7 +6,7 @@ var CodeMirror_{CODE_AREA_ID} = (function() {
 		indentWithTabs: true,
 		enterMode: "keep",
 		tabMode: "shift",
-		theme: "eclipse",
+		theme: "darcula",
 		matchBrackets: true,
 		autoCloseBrackets: true,
 		extraKeys: {

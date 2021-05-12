@@ -1,0 +1,30 @@
+{
+	"browserslist": [
+		"last 1 major version",
+		">= 1%",
+		"Chrome >= 45",
+		"Firefox >= 38",
+		"Edge >= 12",
+		"Explorer >= 10",
+		"iOS >= 9",
+		"Safari >= 9",
+		"Android >= 4.4",
+		"Opera >= 30"
+	],
+	"devDependencies": {
+		"@fortawesome/fontawesome-free": "^5.15.1",
+		"autoprefixer": "^9.8.6",
+		"autosize": "^4.0.2",
+		"bootstrap": "^5.0.0",
+		"bootswatch": "^5.0.0",
+		"gulp": "^4.0.2",
+		"gulp-concat": "^2.6.1",
+		"gulp-postcss": "^8.0.0",
+		"gulp-remote-src": "^0.4.3",
+		"gulp-sass": "^4.1.0",
+		"gulp-sourcemaps": "^2.6.5",
+		"gulp-uglify": "^3.0.2",
+		"jquery": "^3.5.1",
+		"smoothscroll-polyfill": "^0.4.4"
+	}
+}

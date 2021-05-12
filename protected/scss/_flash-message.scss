@@ -1,0 +1,18 @@
+.flash-message {
+	left: 150%;
+	overflow: hidden;
+	position: fixed;
+	width: 50%;
+	opacity: 0.9;
+	z-index: 2000;
+	transition: left 0.6s ease-out 0s;
+	top: 70px;
+
+	&.in {
+		left: 50%;
+	}
+}
+
+.flash-message h4:empty {
+	display: none;
+}

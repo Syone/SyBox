@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{WEB_ROOT}/">
+			<svg viewBox="0 0 100 100">
+				<title>{PROJECT}</title>
+				<use xlink:href="{WEB_ROOT}/assets/img/sprite.svg#logo"></use>
+			</svg>
+		</a>
+
+		<button id="btn-run" class="btn btn-primary me-1" type="submit" form="code_editor" name="action" value="run" title="Ctrl+R"><span class="fas fa-play"></span> Run</button>
+		<button id="btn-save" class="btn btn-primary" type="submit" form="code_editor" name="action" value="save" title="Ctrl+S"><span class="fas fa-save"></span> Save</button>
+
+		<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</div>
+</nav>

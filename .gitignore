@@ -1,0 +1,8 @@
+protected/log
+protected/vendor
+composer.lock
+node_modules/
+protected/scss/vendor/
+package-lock.json
+upload/
+*.ini

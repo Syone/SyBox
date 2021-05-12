@@ -1,0 +1,23 @@
+{
+	"name": "sy/project",
+	"description": "Project template",
+	"type": "project",
+	"require": {
+		"sy/bootstrap": "dev-develop"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Syone",
+			"email": "syone7@gmail.com"
+		}
+	],
+	"config": {
+		"vendor-dir": "protected/vendor"
+	},
+	"autoload": {
+		"psr-4": {
+			"Project\\": "protected/src/"
+		}
+	}
+}

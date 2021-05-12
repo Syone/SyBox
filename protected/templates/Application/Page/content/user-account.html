@@ -1,0 +1,33 @@
+<div class="container mt-3">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="d-none d-md-block" data-component="NAV">
+				{NAV}
+			</div>
+		</div>
+		<div class="col-md-6">
+			<p class="d-block d-md-none">
+				<button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button" aria-controls="offcanvas">&rarr;</button>
+			</p>
+			<div class="card">
+				<h3 class="card-header"><span data-component="TITLE">{TITLE}</span></h3>
+				<div class="card-body">
+					<div data-component="CONTENT">
+						{CONTENT}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas">
+	<div class="offcanvas-header">
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+	<div class="offcanvas-body">
+		<div data-component="NAV">
+			{NAV}
+		</div>
+	</div>
+</div>

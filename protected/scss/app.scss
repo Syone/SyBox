@@ -1,0 +1,97 @@
+// Note: Replace [theme] (examples: darkly, slate, cosmo, spacelab, and superhero. See https://bootswatch.com for current theme names.)
+// @import "../../node_modules/bootswatch/dist/[theme]/variables";
+// @import "variables";
+// @import "../../node_modules/bootstrap/scss/bootstrap";
+// @import "../../node_modules/bootswatch/dist/[theme]/bootswatch";
+//@import "../../node_modules/bootswatch/dist/darkly/variables";
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+//@import "../../node_modules/bootswatch/dist/darkly/bootswatch";
+
+@import "flash-message";
+@import "utilities";
+@import "toolbar";
+
+// Logo
+$logo-height: $nav-link-height;
+
+body {
+	padding-top: $logo-height + $navbar-padding-y * 2;
+	height: 100%;
+	overflow: hidden;
+}
+
+html, #content {
+	height: 100%;
+}
+
+// Navbar
+.navbar-brand {
+	padding-top: 0;
+	padding-bottom: 0;
+	svg {
+		height: $logo-height;
+	}
+}
+
+.navbar {
+	// Avatar
+	[data-bs-toggle="dropdown"] {
+		img {
+			width: 25px;
+			height: 25px;
+			vertical-align: bottom;
+		}
+	}
+}
+
+// Back to top button
+#top-btn {
+	position: fixed;
+	right: 10px;
+	bottom: -100px;
+	transition: all ease-in-out 0.7s;
+	z-index: 1050;
+}
+
+.code-container {
+	height: 50%;
+	position: relative;
+}
+
+.result-container {
+	height: 50%;
+	position: relative;
+	overflow: hidden;
+}
+
+.code-container .badge, .result-container .badge {
+	position: absolute;
+	right: 20px;
+	top: 3px;
+}
+
+.code_result {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #000;
+	background-color: #2b2b2b;
+}
+
+#code_editor {
+	height: 100%;
+}
+
+.code-container .CodeMirror {
+	border: 1px solid #000;
+	height: 100%;
+}
+
+[contenteditable=true]:empty:before {
+	content: attr(data-placeholder);
+}
+
+[contenteditable=true]:empty {
+	color: #CCC;
+	cursor: pointer;
+}
