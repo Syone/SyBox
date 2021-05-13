@@ -10,14 +10,13 @@ class Page extends \Sy\Bootstrap\Application\Page {
 	public function home() {
 		$title = '';
 		$description = '';
+		$text = null;
 
 		// Check if there is saved code
 		$service = Container::getInstance();
 		$id   = $this->get('id');
 		$code = $service->code->retrieve(['id' => $id]);
-		if (empty($code)) {
-			$code = $service->code->retrieve(['slug' => $this->get(CONTROLLER_TRIGGER)]);
-		}
+
 		if (!empty($code)) {
 			$text = $code['code'];
 			// Update the updated_at timestamp each time the code is shown
@@ -26,11 +25,8 @@ class Page extends \Sy\Bootstrap\Application\Page {
 			// Title and description
 			if (!empty($code['title'])) {
 				$title = htmlentities($code['title'], ENT_QUOTES, 'UTF-8');
-				HeadData::setTitle($title);
 			}
 			$description = $code['description'];
-		} else {
-			$text = null;
 		}
 
 		// Title and description editable
@@ -49,6 +45,8 @@ class Page extends \Sy\Bootstrap\Application\Page {
 			'EDITABLE'    => $empty ? 'true' : 'false',
 			'CODE_EDITOR' => $codeEditorForm,
 		]]);
+
+		HeadData::setTitle(empty($title) ? 'PHP playground' : $title);
 	}
 
 	/**

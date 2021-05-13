@@ -1,9 +1,9 @@
 <?php
 // Project name
-define('PROJECT', 'Project');
+define('PROJECT', 'SyBox');
 
 // Project url
-define('PROJECT_URL', (isset($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] : 'https') . '://' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'syone.me'));
+define('PROJECT_URL', (isset($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] : 'https') . '://' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'syframework.alwaysdata.net'));
 
 // Client path to project root directory starting at document root.
 define('WEB_ROOT', '');
