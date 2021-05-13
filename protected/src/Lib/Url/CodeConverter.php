@@ -40,7 +40,7 @@ class CodeConverter implements IConverter {
 		if (empty($id) or false !== strpos($id, '/')) return false;
 
 		$service = Container::getInstance();
-		$code    = $service->code->retrieve(['id' => base_convert($id, 36, 10)]);
+		$code    = $service->code->retrieve(['id' => @base_convert($id, 36, 10)]);
 		if (empty($code)) $code = $service->code->retrieve(['slug' => $id]);
 		if (empty($code)) return false;
 
