@@ -41,17 +41,17 @@ class CodeEditor extends Form {
 			// save the code
 			$date = date("Y-m-d H:i:s");
 			$service = Container::getInstance();
-			$service->code->create([
+			$service->code->change([
 				'title'      => $title,
 				'description'=> $description,
 				'code'       => $code,
-				'created_at' => $date,
-				'updated_at' => $date,
 				'ip'         => ip2long($_SERVER['REMOTE_ADDR']),
+			], [
+				'updated_at' => $date,
 			]);
 
 			$id = $service->code->lastInsertId();
-			echo '<pre style="color:white">http://' . $_SERVER['HTTP_HOST'] . Url::build('page', 'home', ['id' => $id]) . '</pre>';
+			echo '<pre style="color:white">You can share your code using this URL: http://' . $_SERVER['HTTP_HOST'] . Url::build('page', 'home', ['id' => $id]) . '</pre>';
 		} else {
 			if (!is_dir(TMP_DIR)) mkdir(TMP_DIR);
 			$id = uniqid();
