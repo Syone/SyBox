@@ -51,6 +51,7 @@ class CodeEditor extends Form {
 			]);
 
 			$id = $service->code->lastInsertId();
+			$id = empty($id) ? $this->get('id') : $id;
 			echo '<pre style="color:white">You can share your code using this URL: http://' . $_SERVER['HTTP_HOST'] . Url::build('page', 'home', ['id' => $id]) . '</pre>';
 		} else {
 			if (!is_dir(TMP_DIR)) mkdir(TMP_DIR);
