@@ -18,7 +18,7 @@ class Page extends \Sy\Bootstrap\Application\Page {
 		$code = $service->code->retrieve(['id' => $id]);
 
 		if (!empty($code)) {
-			$text = $code['code'];
+			$text = str_replace('{', '&#123;', $code['code']);
 			// Update the updated_at timestamp each time the code is shown
 			$service->code->update(['id' => $id], ['updated_at' => date("Y-m-d H:i:s")]);
 

@@ -17,13 +17,11 @@ class Api extends \Sy\Bootstrap\Application\Api {
 	}
 
 	public function dispatch() {
-		parent::dispatch();
-
-		// If no action method found, check if a plugin api class exists
-		$c = $this->action;
-		if (is_null($c)) return;
-		$class = 'Project\\Application\\Api\\' . ucfirst(Str::snakeToCaml($c));
+		// Check if a plugin api class exists
+		$class = 'Project\\Application\\Api\\' . ucfirst(Str::snakeToCaml($this->action));
 		if (class_exists($class)) new $class();
+
+		parent::dispatch();
 	}
 
 }
