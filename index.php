@@ -15,11 +15,4 @@ if ($env === 'dev') {
 	opcache_reset();
 }
 
-$app = new Project\Application();
-
-// Activate the web debug tool bar
-if ($env === 'dev') {
-	$app->enableDebugBar();
-}
-
-echo $app;
+echo new Project\Application();
