@@ -81,8 +81,9 @@ define('PHP', 'php -d max_execution_time=5 -c /home/syframework/ %s');
 define('TMP_DIR', '/tmp');
 
 // CDN urls
+define('ACE_EDITOR'           , 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13');
 define('CODE_MIRROR'          , 'https://cdn.jsdelivr.net/npm/codemirror@5');
-define('CKEDITOR_JS'          , 'https://cdn.ckeditor.com/4.16.0/full-all/ckeditor.js');
+define('CKEDITOR_JS'          , 'https://cdn.ckeditor.com/4.17.1/full-all/ckeditor.js');
 define('CKEDITOR_ROOT'        , WEB_ROOT . '/assets/ckeditor');
 define('MOMENT_JS'            , 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js');
 //define('JQUERY_JS'            , ['url' => 'https://code.jquery.com/jquery-3.5.1.min.js', 'integrity' => 'sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=']);

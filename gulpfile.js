@@ -1,12 +1,11 @@
 var gulp = require('gulp');
 var sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass')(require('sass'));
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
 
 // Compile & minify css
 function css () {
-	var sass = require('gulp-sass');
-	var postcss = require('gulp-postcss');
-	var autoprefixer = require('autoprefixer');
-
 	return gulp.src('./protected/scss/app.scss')
 			.pipe(sourcemaps.init())
 			.pipe(sass({outputStyle: 'compressed'}))

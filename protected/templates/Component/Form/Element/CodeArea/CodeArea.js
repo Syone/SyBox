@@ -1,19 +1,24 @@
-var CodeMirror_{CODE_AREA_ID} = (function() {
-	return CodeMirror.fromTextArea(document.getElementById("{CODE_AREA_ID}"), {
-		mode: "application/x-httpd-php",
-		lineNumbers: true,
-		indentUnit: 4,
-		indentWithTabs: true,
-		enterMode: "keep",
-		tabMode: "shift",
-		theme: "darcula",
-		matchBrackets: true,
-		autoCloseBrackets: true,
-		extraKeys: {
-			"Shift-Ctrl-C": "toggleComment",
-			"Ctrl-R": function() {$('#btn-run').click()},
-			"Ctrl-S": function() {$('#btn-save').click()}
-		}
-	});
-})();
-
+var editor = ace.edit("{CODE_AREA_ID}");
+editor.setTheme("ace/theme/tomorrow_night");
+editor.session.setMode("ace/mode/php");
+editor.session.setUseSoftTabs(false);
+editor.setShowPrintMargin(false);
+editor.session.setValue($('#{TEXT_AREA_ID}').val());
+editor.session.on('change', function() {
+	$('#{TEXT_AREA_ID}').val(editor.getValue());
+});
+editor.setOption('enableLiveAutocompletion', true);
+editor.commands.addCommand({
+	name: 'Run',
+	bindKey: {win: 'Ctrl-S',  mac: 'Command-S'},
+	exec: function() {
+		$('#{TEXT_AREA_ID}').closest('form').submit();
+	}
+});
+editor.commands.addCommand({
+	name: 'Save and Share',
+	bindKey: {win: 'Ctrl-Shift-S',  mac: 'Command-Shift-S'},
+	exec: function() {
+		$('#btn-save').click();
+	}
+});
