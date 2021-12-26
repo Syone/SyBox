@@ -17,6 +17,8 @@ class CodeArea extends \Sy\Component\Html\Form\Textarea {
 		$this->setTemplateFile(TPL_DIR . '/Component/Form/Element/CodeArea/CodeArea.tpl', 'php');
 		$this->addJsLink(ACE_EDITOR . '/ace.js');
 		$this->addJsLink(ACE_EDITOR . '/ext-language_tools.min.js');
+		$this->addJsLink(ACE_EDITOR . '/theme-tomorrow_night.min.js');
+		$this->addJsLink(ACE_EDITOR . '/mode-php.min.js');
 		$this->setContent(array("<?php\n"));
 	}
 
