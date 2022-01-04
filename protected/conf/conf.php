@@ -5,6 +5,9 @@ define('PROJECT', 'SyBox');
 // Project url
 define('PROJECT_URL', (isset($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] : 'https') . '://' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'syframework.alwaysdata.net'));
 
+// Project version
+define('PROJECT_VERSION', '1.0.0');
+
 // Client path to project root directory starting at document root.
 define('WEB_ROOT', '');
 
@@ -102,3 +105,12 @@ define('PRINT_JS'             , 'https://cdnjs.cloudflare.com/ajax/libs/printThi
 define('SLIP_JS'              , 'https://cdnjs.cloudflare.com/ajax/libs/slipjs/2.1.1/slip.min.js');
 define('CROPPER_JS'           , 'https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.3/cropper.min.js');
 define('CROPPER_CSS'          , 'https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.3/cropper.min.css');
+
+// You can use these slot names (prefixed by underscore) in your templates, they are set in Sy\Bootstrap\Application\Page\Body
+define('MAGIC_VARS', [
+	'_PROJECT'         => PROJECT,
+	'_PROJECT_URL'     => PROJECT_URL,
+	'_PROJECT_VERSION' => PROJECT_VERSION,
+	'_WEB_ROOT'        => WEB_ROOT,
+	'_YEAR'            => date('Y'),
+]);
