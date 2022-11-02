@@ -46,7 +46,7 @@ class Page extends \Sy\Bootstrap\Application\Page {
 		$text = null;
 
 		// Check if there is saved code
-		$service = Container::getInstance();
+		$service = \Sy\Bootstrap\Service\Container::getInstance();
 		$id   = $this->get('id');
 		$code = $service->code->retrieve(['id' => $id]);
 
