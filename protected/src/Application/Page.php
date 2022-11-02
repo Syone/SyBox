@@ -30,10 +30,82 @@ class Page extends \Sy\Bootstrap\Application\Page {
 
 		// Application js
 		$this->addJsLink(WEB_ROOT . '/assets/js/app.js');
+
+		$this->setLayoutVars([
+			'_NAV' => new \Project\Component\Nav\Navbar(),
+		]);
 	}
 
 	protected function postInit() {
 
+	}
+
+	public function homeAction() {
+		$title = '';
+		$description = '';
+		$text = null;
+
+		// Check if there is saved code
+		$service = Container::getInstance();
+		$id   = $this->get('id');
+		$code = $service->code->retrieve(['id' => $id]);
+
+		if (!empty($code)) {
+			$text = str_replace('{', '&#123;', $code['code']);
+			// Update the updated_at timestamp each time the code is shown
+			$service->code->update(['id' => $id], ['updated_at' => date("Y-m-d H:i:s")]);
+
+			// Title and description
+			if (!empty($code['title'])) {
+				$title = htmlentities($code['title'], ENT_QUOTES, 'UTF-8');
+			}
+			$description = $code['description'];
+		}
+
+		// Title and description editable
+		$empty = empty($code['title']) and empty($code['description']);
+
+		// Code editor form
+		$codeEditorForm = new \Project\Component\Form\CodeEditor($text);
+		$codeEditorForm->setAttribute('id', 'code_editor');
+		$codeEditorForm->setAttribute('target', 'code_result');
+		$codeEditorForm->addHidden(['name' => 'title', 'maxlength' => '255']);
+		$codeEditorForm->addHidden(['name' => 'description', 'maxlength' => '512']);
+
+		$this->setContentVars([
+			'TITLE'       => $title,
+			'DESCRIPTION' => $description,
+			'EDITABLE'    => $empty ? 'true' : 'false',
+			'CODE_EDITOR' => $codeEditorForm,
+		]);
+
+		HeadData::setTitle(empty($title) ? 'PHP playground' : $title);
+	}
+
+	/**
+	 * User settings page
+	 */
+	public function userAccountAction() {
+		$service = \Sy\Bootstrap\Service\Container::getInstance();
+		$user = $service->user->getCurrentUser();
+		if (!$user->isConnected() or $user->hasRole('blacklisted')) $this->redirect(WEB_ROOT . '/');
+		$sections = [
+			'index'  => $this->_('Account informations'),
+			'change' => $this->_('Change password'),
+			'delete' => $this->_('Delete account')
+		];
+		$nav = new \Sy\Component\Html\Navigation();
+		$nav->setAttribute('class', 'nav nav-pills flex-column');
+		foreach ($sections as $id => $label) {
+			$active = $id == $this->get('s', 'index') ? 'active' : '';
+			$i = $nav->addItem($label, Url::build('page', 'user-account', array('s' => $id)), ['class' => "nav-link $active"]);
+			$i->setAttribute('class', 'nav-item');
+		}
+		$this->setContentVars([
+			'TITLE'   => $sections[$this->get('s', 'index')],
+			'NAV'     => $nav,
+			'CONTENT' => new \Project\Component\User\AccountPanel(),
+		]);
 	}
 
 }
