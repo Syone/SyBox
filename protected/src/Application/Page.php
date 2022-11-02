@@ -46,7 +46,7 @@ class Page extends \Sy\Bootstrap\Application\Page {
 		$text = null;
 
 		// Check if there is saved code
-		$service = \Sy\Bootstrap\Service\Container::getInstance();
+		$service = \Project\Service\Container::getInstance();
 		$id   = $this->get('id');
 		$code = $service->code->retrieve(['id' => $id]);
 
@@ -86,7 +86,7 @@ class Page extends \Sy\Bootstrap\Application\Page {
 	 * User settings page
 	 */
 	public function userAccountAction() {
-		$service = \Sy\Bootstrap\Service\Container::getInstance();
+		$service = \Project\Service\Container::getInstance();
 		$user = $service->user->getCurrentUser();
 		if (!$user->isConnected() or $user->hasRole('blacklisted')) $this->redirect(WEB_ROOT . '/');
 		$sections = [
