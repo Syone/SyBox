@@ -6,11 +6,10 @@ class CodeArea extends \Sy\Component\Html\Form\Textarea {
 	public function __construct() {
 		parent::__construct();
 		$this->preInit();
-	}
 
-	public function __toString() {
-		$this->postInit();
-		return parent::__toString();
+		$this->mount(function () {
+			$this->postInit();
+		});
 	}
 
 	private function preInit() {
