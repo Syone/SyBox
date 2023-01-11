@@ -10,8 +10,8 @@ class CodeEditor extends Form {
 	private $code;
 
 	public function __construct($code = null) {
-		$this->code = $code;
 		parent::__construct();
+		$this->code = $code;
 	}
 
 	public function init() {
@@ -25,7 +25,7 @@ class CodeEditor extends Form {
 
 		// add code in code area
 		if (!empty($this->code)) {
-			$codeArea->setContent([$this->code]);
+			$codeArea->setContent($this->code);
 		}
 
 		$this->addElement($codeArea);

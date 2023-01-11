@@ -18,7 +18,7 @@ class CodeArea extends \Sy\Component\Html\Form\Textarea {
 		$this->addJsLink(ACE_EDITOR . '/ext-language_tools.min.js');
 		$this->addJsLink(ACE_EDITOR . '/theme-tomorrow_night.min.js');
 		$this->addJsLink(ACE_EDITOR . '/mode-php.min.js');
-		$this->setContent("<?php\n");
+		$this->setContent("<?php\n\n");
 	}
 
 	private function postInit() {

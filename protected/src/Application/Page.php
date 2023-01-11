@@ -1,8 +1,6 @@
 <?php
 namespace Project\Application;
 
-
-
 class Page extends \Sy\Bootstrap\Application\Page {
 
 	protected function preInit() {
