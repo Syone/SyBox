@@ -5,7 +5,7 @@ class Page extends \Sy\Bootstrap\Application\Page {
 
 	protected function preInit() {
 		// Head data
-		$this->setMeta('viewport', 'width=device-width, initial-scale=1, shrink-to-fit=no');
+		$this->setMeta('viewport', 'width=device-width, initial-scale=1');
 		$this->setMeta('mobile-web-app-capable', 'yes');
 		$this->setMeta('apple-mobile-web-app-capable', 'yes');
 		$this->setMeta('X-UA-Compatible', 'IE=edge', true);
@@ -14,8 +14,8 @@ class Page extends \Sy\Bootstrap\Application\Page {
 
 		// Favicon
 		$this->addLink(['rel' => 'apple-touch-icon', 'sizes' => '180x180', 'href' => WEB_ROOT . '/assets/img/icons/apple-touch-icon.png']);
-		$this->addLink(['rel' => 'icon', 'sizes'=>'32x32', 'href' => WEB_ROOT . '/assets/img/icons/favicon-32x32.png']);
-		$this->addLink(['rel' => 'icon', 'sizes'=>'16x16', 'href' => WEB_ROOT . '/assets/img/icons/favicon-16x16.png']);
+		$this->addLink(['rel' => 'icon', 'sizes' => '32x32', 'href' => WEB_ROOT . '/assets/img/icons/favicon-32x32.png']);
+		$this->addLink(['rel' => 'icon', 'sizes' => '16x16', 'href' => WEB_ROOT . '/assets/img/icons/favicon-16x16.png']);
 		$this->addLink(['rel' => 'manifest', 'href' => WEB_ROOT . '/site.webmanifest']);
 		$this->addLink(['rel' => 'mask-icon', 'href' => WEB_ROOT . '/assets/img/icons/safari-pinned-tab.svg', 'color' => '#e95420']);
 		$this->setFavicon(WEB_ROOT . '/assets/img/icons/favicon.ico');

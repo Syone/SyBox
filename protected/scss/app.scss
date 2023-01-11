@@ -53,22 +53,23 @@ html, #content {
 	z-index: 1050;
 }
 
-.code-container {
-	height: 50%;
-	position: relative;
+.sybox-container {
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr;
 }
 
-.result-container {
-	height: 50%;
+.coderesult-container {
 	position: relative;
-	overflow: hidden;
+
+	.badge {
+		position: absolute;
+		right: 20px;
+		top: 3px;
+	}
 }
 
-.code-container .badge, .result-container .badge {
-	position: absolute;
-	right: 20px;
-	top: 3px;
-}
 
 .code_result {
 	width: 100%;
