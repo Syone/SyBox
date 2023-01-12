@@ -77,7 +77,13 @@ class Page extends \Sy\Bootstrap\Application\Page {
 			'CODE_EDITOR' => $codeEditorForm,
 		]);
 
-		\Sy\Bootstrap\Lib\HeadData::setTitle(empty($title) ? 'PHP playground' : $title);
+		if (!empty($title)) {
+			\Sy\Bootstrap\Lib\HeadData::setTitle($title);
+		}
+
+		if (!empty($description)) {
+			\Sy\Bootstrap\Lib\HeadData::setTitle($description);
+		}
 	}
 
 	/**
