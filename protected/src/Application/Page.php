@@ -82,7 +82,7 @@ class Page extends \Sy\Bootstrap\Application\Page {
 		}
 
 		if (!empty($description)) {
-			\Sy\Bootstrap\Lib\HeadData::setTitle($description);
+			\Sy\Bootstrap\Lib\HeadData::setDescription(htmlentities($description, ENT_QUOTES, 'UTF-8'));
 		}
 	}
 
