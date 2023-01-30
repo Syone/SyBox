@@ -1,6 +1,8 @@
 <?php
 namespace Project\Application;
 
+use Sy\Bootstrap\Lib\Url;
+
 class Page extends \Sy\Bootstrap\Application\Page {
 
 	protected function preInit() {
@@ -75,6 +77,7 @@ class Page extends \Sy\Bootstrap\Application\Page {
 			'DESCRIPTION' => $description,
 			'EDITABLE'    => $empty ? 'true' : 'false',
 			'CODE_EDITOR' => $codeEditorForm,
+			'IFRAME_SRC'  => Url::build('api', 'result', ['code' => serialize($code['code'])]),
 		]);
 
 		if (!empty($title)) {

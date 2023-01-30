@@ -24,4 +24,20 @@ class Api extends \Sy\Bootstrap\Application\Api {
 		parent::dispatch();
 	}
 
+	public function resultAction() {
+		$code = $this->get('code');
+		if (is_null($code)) exit;
+		if (!is_dir(TMP_DIR)) mkdir(TMP_DIR);
+		$id = uniqid();
+		file_put_contents(TMP_DIR . "/$id.php", unserialize($code));
+		ob_start();
+		passthru(sprintf(PHP, TMP_DIR . '/' . $id . '.php'));
+		$output = ob_get_contents();
+		ob_end_clean();
+		$output = htmlentities($output, ENT_QUOTES);
+		echo "<pre style=\"color:white\">$output</pre>";
+		unlink(TMP_DIR . "/$id.php");
+		exit;
+	}
+
 }
