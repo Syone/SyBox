@@ -77,7 +77,7 @@ class Page extends \Sy\Bootstrap\Application\Page {
 			'DESCRIPTION' => $description,
 			'EDITABLE'    => $empty ? 'true' : 'false',
 			'CODE_EDITOR' => $codeEditorForm,
-			'IFRAME_SRC'  => Url::build('api', 'result', ['code' => serialize($code['code'])]),
+			'IFRAME_SRC'  => Url::build('api', 'result', isset($code['code']) ? ['code' => serialize($code['code'])] : []),
 		]);
 
 		if (!empty($title)) {
