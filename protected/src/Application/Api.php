@@ -25,11 +25,14 @@ class Api extends \Sy\Bootstrap\Application\Api {
 	}
 
 	public function resultAction() {
-		$code = $this->get('code');
+		$service = \Project\Service\Container::getInstance();
+		$id = $this->get('id');
+		$res = $service->code->retrieve(['id' => $id]);
+		$code = $res['code'] ?? null;
 		if (is_null($code)) exit;
 		if (!is_dir(TMP_DIR)) mkdir(TMP_DIR);
 		$id = uniqid();
-		file_put_contents(TMP_DIR . "/$id.php", unserialize($code));
+		file_put_contents(TMP_DIR . "/$id.php", $code);
 		ob_start();
 		passthru(sprintf(PHP, TMP_DIR . '/' . $id . '.php'));
 		$output = ob_get_contents();
