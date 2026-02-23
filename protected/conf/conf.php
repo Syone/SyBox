@@ -84,7 +84,7 @@ define('PHP', 'php -d max_execution_time=5 -c /home/syframework/ %s');
 define('TMP_DIR', '/tmp');
 
 // CDN urls
-define('ACE_EDITOR'           , 'https://cdn.jsdelivr.net/npm/ace-builds');
+define('ACE_EDITOR'           , 'https://cdn.jsdelivr.net/npm/ace-builds/src-min-noconflict');
 define('CODE_MIRROR'          , 'https://cdn.jsdelivr.net/npm/codemirror@5');
 define('CKEDITOR_JS'          , 'https://cdn.ckeditor.com/4.17.1/full-all/ckeditor.js');
 define('CKEDITOR_ROOT'        , WEB_ROOT . '/assets/ckeditor');
